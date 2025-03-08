@@ -16,6 +16,7 @@ const NavbarBody = styled('div')`
 const NavbarLinks = styled('div')`
     display: flex;
     gap: 20px;
+    
 `
 
 export const Navbar = () => {
@@ -37,7 +38,7 @@ const locations = [
        element: <NavLink to={"/map"} end>Map</NavLink>
     },
     {
-        element: <NavLink to={"/cleanup"} end>Clean Up</NavLink>
+        element: <NavLink to={"/cleanup"} end>Projects</NavLink>
     },
     {
         element: <NavLink to={"/about"} end>About</NavLink>
