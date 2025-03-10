@@ -8,15 +8,14 @@ const NavbarBody = styled('div')`
     padding: 15px;
     
     > h1, a, button {
+        padding: 0;
         font-size: large;
-        align-content: center;
     }
 `
 
 const NavbarLinks = styled('div')`
     display: flex;
     gap: 20px;
-    
 `
 
 export const Navbar = () => {
@@ -32,7 +31,7 @@ export const Navbar = () => {
 
 const locations = [
     {
-        element: <Button>Upload</Button>
+        element: <NavLink to={"/"} end><Button>Upload</Button></NavLink>
     },
     {
        element: <NavLink to={"/map"} end>Map</NavLink>
