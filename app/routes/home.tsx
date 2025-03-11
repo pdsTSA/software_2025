@@ -9,19 +9,21 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const CoverImage = styled('div')`
-    background-image: url("/creek.jpg");
     background-size: cover;
     width: 100%;
     margin: 0;
     padding: 15% 20px 15% 10%;
-    background-blend-mode: multiply;
-    background-color: rgba(8, 15, 50, 0.41);
 `
 
 const SplashScreen = styled('div')`
-    display: flex;
-    font-size: xxx-large;
-    font-weight: bold;
+    > h1 {
+        font-size: xxx-large;
+        font-weight: bold;
+    }
+    
+    > p {
+        font-size: xx-large;
+    }
 `
 
 export default function Home() {
@@ -30,6 +32,7 @@ export default function Home() {
             <CoverImage>
                 <SplashScreen>
                     <h1>Clean Up Service</h1>
+                    <p>Saving creeks one picture at a time</p>
                 </SplashScreen>
             </CoverImage>
         </div>

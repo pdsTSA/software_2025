@@ -1,6 +1,7 @@
 import {NavLink} from "react-router";
-import {Button} from "@mui/material";
 import {styled} from "@mui/system";
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
+
 
 const NavbarBody = styled('div')`
     display: flex;
@@ -20,12 +21,25 @@ const NavbarLinks = styled('div')`
 
 export const Navbar = () => {
     return (
-        <NavbarBody>
-            <h1>Clean Up Service</h1>
-            <NavbarLinks>
-                {locations.map(e => e.element)}
-            </NavbarLinks>
-        </NavbarBody>
+        <AppBar position="static">
+            <Toolbar>
+                <IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    sx={{ mr: 2 }}
+                >
+                </IconButton>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    Clean Up Service
+                </Typography>
+                <Button color="inherit">Upload</Button>
+                <NavLink to={"/map"}><Button color="inherit">Map</Button></NavLink>
+                <NavLink to={"/projects"}><Button color="inherit">Projects</Button></NavLink>
+                <NavLink to={"/about"}><Button color="inherit">About</Button></NavLink>
+            </Toolbar>
+        </AppBar>
     )
 }
 
