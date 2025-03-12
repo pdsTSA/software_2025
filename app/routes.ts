@@ -4,7 +4,7 @@ export default [
     layout("./layout/layout.tsx", [
         index("routes/home.tsx"),
         route("/map", 'routes/map.tsx'),
-        route("/cleanup", 'routes/projects.tsx'),
+        route("/projects", 'routes/projects.tsx'),
         route("/about", 'routes/about.tsx'),
     ])
 ] satisfies RouteConfig;
