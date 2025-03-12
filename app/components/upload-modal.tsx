@@ -122,7 +122,7 @@ export const UploadModal = ({open, toggleOpen}: UploadModalTypes) => {
                         <p>{file?.name}</p>
                     </FileUploadRow>
                     <Paper>
-                        <MapContainer center={[33.75, -84.38]} zoom={13} scrollWheelZoom={true} style={{
+                        <MapContainer center={[33.75, -84.38]} zoom={14} scrollWheelZoom={true} style={{
                             width: "100%", height: "400px"}}>
                             <TileLayer
                                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
