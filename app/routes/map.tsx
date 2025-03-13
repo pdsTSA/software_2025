@@ -5,11 +5,20 @@ import {Suspense, useEffect, useState} from "react";
 import {createSuspender} from "~/components/suspense";
 import type {BoundingBox, PollutionReport} from "~/components/types/global.types";
 
-const ReportPin = ({promise, position}: any) => {
-    console.log(promise)
-    const raw = promise.read();
+const ReportPin = ({file, promise, position, addToCache, cacheUrl}: any) => {
+    let url;
 
-    const url = URL.createObjectURL(raw)
+    if (cacheUrl == null) {
+        const raw = promise.read();
+
+        url = URL.createObjectURL(raw)
+
+        useEffect(() => {
+            addToCache(file, url)
+        }, []);
+    } else {
+        url = cacheUrl;
+    }
 
     return (
         <Marker position={position}>
@@ -20,8 +29,13 @@ const ReportPin = ({promise, position}: any) => {
     )
 }
 
+interface Cache {
+    [key: string]: string
+}
+
 const MapPins = () => {
     const [pins, setPins] = useState<PollutionReport[] | null>(null)
+    const [cache, updateCache] = useState<Cache>({});
 
     const fetchPins = () => {
         const box: BoundingBox = leafletMap.getBounds();
@@ -54,18 +68,33 @@ const MapPins = () => {
         return await response.blob();
     }
 
+    const addToCache = (file_name: string, blobUrl: string) => {
+        updateCache({...cache, [file_name]: blobUrl})
+    }
+
     if (pins === null) {
         return null
     } else {
         return (
             <Suspense>
                 {pins.map((e) => {
-                    const promise = fetch(`http://localhost:5000/image?file_name=${e.file_name}`)
+                    if (e.file_name in cache) {
+                        return <ReportPin position={{lat: e.latitude, lng: e.longitude}}
+                                          promise={null} key={e.id}
+                                          file={e.file_name}
+                                          addToCache={addToCache}
+                                          cacheUrl={cache[e.file_name]}/>
+                    } else {
+                        const promise = fetch(`http://localhost:5000/image?file_name=${e.file_name}`)
 
-                    if (promise == undefined) return;
+                        if (promise == undefined) return;
 
-                    return <ReportPin position={{lat: e.latitude, lng: e.longitude}}
-                                      promise={createSuspender(fetchPin(promise))} key={e.id}/>
+                        return <ReportPin position={{lat: e.latitude, lng: e.longitude}}
+                                          promise={createSuspender(fetchPin(promise))} key={e.id}
+                                          file={e.file_name}
+                                          addToCache={addToCache}
+                                          cacheUrl={null}/>
+                    }
                 })}
             </Suspense>
         )
