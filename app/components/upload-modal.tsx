@@ -68,6 +68,19 @@ export const UploadModal = ({open, toggleOpen}: UploadModalTypes) => {
         setPosition(null)
     }
 
+    const submitReport = async () => {
+        let formData = new FormData();
+        if (file == null) return;
+        if (position == null) return;
+
+        formData.append("image", file);
+        formData.append("latitude", position?.lat.toString())
+        formData.append("longitude", position?.lng.toString())
+
+        await fetch("http://127.0.0.1:5000/upload", {method: "POST", body: formData})
+        handleClose()
+    }
+
     const [file, setFile] = useState<File | null>(null)
     const [position, setPosition] = useState<LatLng | null>(null);
 
@@ -109,7 +122,7 @@ export const UploadModal = ({open, toggleOpen}: UploadModalTypes) => {
                         <p>{file?.name}</p>
                     </FileUploadRow>
                     <Paper>
-                        <MapContainer center={[33.75, -84.38]} zoom={13} scrollWheelZoom={true} style={{
+                        <MapContainer center={[33.75, -84.38]} zoom={14} scrollWheelZoom={true} style={{
                             width: "100%", height: "400px"}}>
                             <TileLayer
                                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -122,6 +135,7 @@ export const UploadModal = ({open, toggleOpen}: UploadModalTypes) => {
                         <Button startIcon={<Send/>}
                                 variant={'contained'}
                                 disabled={file === null || position === null}
+                                onClick={submitReport}
                         >
                             Submit Report
                         </Button>
