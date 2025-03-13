@@ -5,7 +5,6 @@ import { useTheme } from '@mui/material/styles';
 import {Button} from "@mui/material";
 import {UploadModal} from "~/components/upload-modal";
 import {useState} from "react";
-import {CloudUpload, FileUpload} from "@mui/icons-material";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -18,10 +17,15 @@ const CoverImage = styled('div')`
     background-size: cover;
     width: 100%;
     margin: 0;
-    padding: 15% 20px 15% 10%;
+    padding: 25% 0 5% 5%;
+    background-image: url("/creek.jpg");
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.20);
 `
 
 const SplashScreen = styled('div')`
+    color: white;
+    
     > h1 {
         font-size: xxx-large;
         font-weight: bold;
@@ -61,7 +65,7 @@ export default function Home() {
     return (
         <div>
             <UploadModal open={open} toggleOpen={isOpen} />
-            <CoverImage>
+            <CoverImage >
                 <SplashScreen>
                     <h1>Clean Up Service</h1>
                     <p>Saving creeks one picture at a time</p>

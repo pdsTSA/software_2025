@@ -43,7 +43,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-const themeOptions = createTheme();
+const themeOptions = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: 'rgba(12,63,11,0.82)',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+  typography: {
+    fontFamily: [
+        'Rubik',
+        'sans-serif'
+    ].join(",")
+  }
+});
 
 export default function App() {
   return <ThemeProvider theme={themeOptions}>

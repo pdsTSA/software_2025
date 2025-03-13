@@ -6,7 +6,7 @@ import {createSuspender} from "~/components/suspense";
 import type {BoundingBox, PollutionReport} from "~/components/types/global.types";
 
 const ReportPin = ({file, promise, position, addToCache, cacheUrl}: any) => {
-    let url;
+    let url: string | undefined;
 
     if (cacheUrl == null) {
         const raw = promise.read();
