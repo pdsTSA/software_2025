@@ -115,6 +115,7 @@ export const UploadModal = ({open, toggleOpen}: UploadModalTypes) => {
                             Select file
                             <VisuallyHiddenInput
                                 type="file"
+                                accept="image/*"
                                 onChange={(event) => handleFileUpload(event.target.files)}
                                 multiple
                             />
