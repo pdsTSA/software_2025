@@ -10,7 +10,43 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Suspense, useEffect, useState} from "react";
 import type {CleanupLocation} from "~/components/types/global.types";
+import {Typography} from "@mui/material";
 
+const Section = styled('section')({
+    padding: '2rem 0',
+  });
+  
+  const Title = styled(Typography)({
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    marginBottom: '1.5rem',
+    color: '#2C3E50',
+  });
+  
+  const CoverImage = styled('div')`
+      background-size: cover; 
+      width: 100%;
+      margin: 0;
+      padding: 15% 20px 15% 10%;
+  `;
+  
+  const SplashScreen = styled('div')`
+      > h1 {
+          font-size: xxx-large;
+          font-weight: bold;
+          color: white;
+      }
+      
+      > p {
+          font-size: xx-large;
+      }
+  `;
+
+  const TitleText = styled(Typography)({
+    fontWeight: 'bold',
+    fontSize: '1.1rem',
+    color: 'white',
+  });
 
 const ClusterRows = ({clusters}: any) => {
     console.log(clusters)
