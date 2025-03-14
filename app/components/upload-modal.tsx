@@ -7,6 +7,7 @@ import {VisuallyHiddenInput} from "~/components/hidden-input";
 import {styled} from "@mui/system";
 import {MapContainer, Marker, Popup, TileLayer, useMapEvents} from "react-leaflet";
 import {CloudUpload, Send} from "@mui/icons-material";
+import type {LatLng} from "~/components/types/global.types";
 
 
 const FileUploadRow = styled('div')`

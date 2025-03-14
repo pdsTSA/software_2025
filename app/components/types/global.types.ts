@@ -15,3 +15,10 @@ export interface PollutionReport {
     timestamp: string
     id: number
 }
+
+export interface CleanupLocation {
+    center: number[],
+    entries: number,
+    latest: string,
+    location: string
+}
