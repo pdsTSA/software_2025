@@ -45,7 +45,8 @@ const QuestionText = styled(Typography)({
   fontWeight: '600',
   color: '#2980B9',
   fontSize: '1.2rem',
-  marginBottom: '0.5rem',
+  marginBottom: '.5rem',
+  marginLeft: '.5',
 });
 
 const TitleText = styled(Typography)({
