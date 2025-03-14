@@ -1,17 +1,17 @@
-import type {Route} from "./+types/home";
-import {styled} from "@mui/system";
-import {ColorBlock} from "~/components/color-block";
+import type { Route } from "./+types/home";
+import { styled } from "@mui/system";
+import { ColorBlock } from "~/components/color-block";
 import { useTheme } from '@mui/material/styles';
-import {Button} from "@mui/material";
-import {UploadModal} from "~/components/upload-modal";
-import {useState} from "react";
-import {CloudUpload, FileUpload} from "@mui/icons-material";
-import {Typography} from "@mui/material";
+import { Button } from "@mui/material";
+import { UploadModal } from "~/components/upload-modal";
+import { useState } from "react";
+import { CloudUpload, FileUpload } from "@mui/icons-material";
+import { Typography, ListItem, ListItemText, List } from "@mui/material";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
     return [
-        {title: "New React Router App"},
-        {name: "description", content: "Welcome to React Router!"},
+        { title: "New React Router App" },
+        { name: "description", content: "Welcome to React Router!" },
     ];
 }
 
@@ -26,6 +26,15 @@ const CoverImage = styled('div')`
     color: white;
     text-align: center;
 `;
+
+const ListStyled = styled(List)({
+    marginTop: '1rem',
+    paddingLeft: '20px',
+  });
+
+  const ListItemStyled = styled(ListItem)({
+    marginBottom: '1.5rem', // Consistent margin between each FAQ item
+  });
 
 const SplashScreen = styled('div')`
 > h1 {
@@ -42,6 +51,11 @@ const SplashScreen = styled('div')`
     }
 `;
 
+const Section = styled('section')({
+    padding: '2rem 0',
+  });
+
+
 const UploadSection = styled('div')`
     padding: 10px;
     display: flex;
@@ -52,7 +66,7 @@ const TitleText = styled(Typography)({
     fontWeight: 'bold',
     color: "white",
     fontSize: '1.1rem',
-  });
+});
 
 const UploadButton = styled('div')`
     border: 4px solid white;
@@ -91,6 +105,16 @@ export default function Home() {
                     </Button>
                 </UploadSection>
             </ColorBlock>
+            <Section>
+                <ListStyled>
+                    <ListItemStyled>
+                        <ListItemText primary="'Every day, we are losing vital natural resources due to waste and pollution. Immediate action is needed to restore and protect our environment for future generations.'" />
+                    </ListItemStyled>
+                    <ListItemStyled>
+                        <ListItemText primary="– Environmental Protection Agency (EPA)" />
+                    </ListItemStyled>
+                </ListStyled>
+            </Section>
         </div>
     )
 }
