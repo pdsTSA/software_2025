@@ -76,8 +76,7 @@ export default function Home() {
             <CoverImage>
                 <SplashScreen>
                     <h1>Clean Up Service</h1>
-                    <p><TitleText>Saving creeks one picture at a time</TitleText></p>
-                    <p><TitleText>Your images help make the world a cleaner place</TitleText></p>
+                    <p>Saving creeks one picture at a time</p>
                 </SplashScreen>
             </CoverImage>
             <ColorBlock color={theme.palette.primary.main}>
