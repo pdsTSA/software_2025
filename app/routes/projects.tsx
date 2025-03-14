@@ -10,7 +10,29 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Suspense, useEffect, useState} from "react";
 import type {CleanupLocation} from "~/components/types/global.types";
+import {Typography} from "@mui/material";
 
+const CoverImage = styled('div')`
+    background-size: cover; 
+    width: 100%;
+    margin: 0;
+    padding: 20% 10%;
+    background-image:url("/creek.jpg");
+    background-blend-mode multiply;
+    background-color: rba(0,0,0,0.2);
+    color: white;
+    text-align: center;
+`;
+
+const SplashScreen = styled('div')`
+> h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-botttom: 1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    }
+`;
 
 const ClusterRows = ({clusters}: any) => {
     console.log(clusters)
@@ -50,10 +72,14 @@ export default function Projects() {
                 (e) => setClusters(e)
             ))
     }, []);
-
     return (
         <div>
-            <TableContainer component={Paper} sx={{paddingLeft: 5, paddingRight:5, paddingBottom: 2}}>
+            <CoverImage style={{ backgroundImage: 'url(https://raw.githubusercontent.com/pdsTSA/software_2025/master/public/creek.jpg)' }}>
+                <SplashScreen>
+                <h1>Projects</h1>
+                </SplashScreen>
+            </CoverImage>
+            <TableContainer component={Paper} sx={{marginTop: 2, paddingLeft: 5, paddingRight:5, paddingBottom: 2}}>
                 <Table sx={{ minWidth: 650, border: 1}} aria-label="simple table">
                     <TableHead sx={{borderBottom: 2 }}>
                         <TableRow sx={{'th': {borderRight: 1}}}>

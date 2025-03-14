@@ -16,28 +16,31 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const CoverImage = styled('div')`
-    background-size: cover;
+    background-size: cover; 
     width: 100%;
     margin: 0;
-    padding: 25% 0 5% 5%;
-    background-image: url("/creek.jpg");
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.20);
-`
+    padding: 20% 10%;
+    background-image:url("/creek.jpg");
+    background-blend-mode multiply;
+    background-color: rba(0,0,0,0.2);
+    color: white;
+    text-align: center;
+`;
 
 const SplashScreen = styled('div')`
-    color: white;
-    
-    > h1 {
-        font-size: xxx-large;
-        font-weight: bold;
+> h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-botttom: 1rem;
         color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
     }
     
-    > p {
-        font-size: xx-large;
+> p {
+        font-size: 1.5rem;
+        font-weight: 300;
     }
-`
+`;
 
 const UploadSection = styled('div')`
     padding: 10px;
