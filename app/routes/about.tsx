@@ -25,6 +25,7 @@ const CoverImage = styled('div')`
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
   text-align: center;
+  height: 92vh;
 `;
 
 const SplashScreen = styled('div')`
