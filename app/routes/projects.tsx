@@ -29,8 +29,8 @@ const Section = styled('section')({
     margin: 0;
     padding: 20% 10%;
     background-image:url("/creek.jpg");
-    background-blend-mode multiply;
-    background-color: rba(0,0,0,0.2);
+    background-blend-mode: multiply;
+    background-color: rgba(0,0,0,0.4);
     color: white;
     text-align: center;
 `;

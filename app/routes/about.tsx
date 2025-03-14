@@ -22,7 +22,7 @@ const CoverImage = styled('div')`
   padding: 20% 10%;
   background-image: url("/creek.jpg");
   background-blend-mode: multiply;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
   text-align: center;
 `;
@@ -93,7 +93,6 @@ const About = () => {
       <CoverImage>
         <SplashScreen>
           <h1>About</h1>
-          <p><TitleText>Staying Informed</TitleText></p>
         </SplashScreen>
       </CoverImage>
       <Container maxWidth="md">
