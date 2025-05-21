@@ -14,47 +14,48 @@ import {Typography} from "@mui/material";
 
 const Section = styled('section')({
     padding: '2rem 0',
-  });
-  
-  const Title = styled(Typography)({
-    fontSize: '2rem',
-    fontWeight: 'bold',
-    marginBottom: '1.5rem',
-    color: '#2C3E50',
-  });
-  
-  const CoverImage = styled('div')`
-    background-size: cover; 
-    width: 100%;
-    margin: 0;
-    padding: 20% 10%;
-    background-image:url("/creek.jpg");
-    background-blend-mode: multiply;
-    background-color: rgba(0,0,0,0.4);
-    color: white;
-    text-align: center;
+});
+
+const Title = styled(Typography)({
+    fontSize: '2.5rem',
+    fontWeight: '600',
+    marginBottom: '2rem',
+    color: '#34495e',
+    textAlign: 'center'
+});
+
+const CoverImage = styled('div')`
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  padding: 20% 10%;
+  background-image: url("/creek.jpg");
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.3); 
+  color: white;
+  text-align: center;
+  height: 92vh;
 `;
 
 const SplashScreen = styled('div')`
-> h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-botttom: 1rem;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-    }
-    
-> p {
-        font-size: 1.5;
-        font-weight: 300;
-    }
+  > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  > p {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
 `;
 
-  const TitleText = styled(Typography)({
+const TitleText = styled(Typography)({
     fontWeight: 'bold',
     fontSize: '1.1rem',
     color: 'white',
-  });
+});
 
 const ClusterRows = ({clusters}: any) => {
     console.log(clusters)
@@ -75,7 +76,7 @@ const ClusterRows = ({clusters}: any) => {
                         <TableCell component="th" scope="row">{e.entries}</TableCell>
                         <TableCell component="th" scope="row">{e.latest}</TableCell>
                         <TableCell component="th" scope="row">
-                            <a href={`https://www.google.com/maps/place/${e.center[0].replace("-", "")}${lat}+${e.center[1].replace("-", "")}${lng}`}>Link</a>
+                            <a href={`https://www.google.com/maps/place/$${e.center[0].replace("-", "")}${lat}+${e.center[1].replace("-", "")}${lng}`}>Link</a>
                         </TableCell>
                     </TableRow>
                 })}
@@ -96,9 +97,9 @@ export default function Projects() {
     }, []);
     return (
         <div>
-            <CoverImage style={{ backgroundImage: 'url(https://raw.githubusercontent.com/pdsTSA/software_2025/master/public/creek.jpg)' }}>
+            <CoverImage>
                 <SplashScreen>
-                <h1>Projects</h1>
+                    <h1>Projects</h1>
                 </SplashScreen>
             </CoverImage>
             <TableContainer component={Paper} sx={{marginTop: 2, paddingLeft: 5, paddingRight:5, paddingBottom: 2}}>
