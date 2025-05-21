@@ -92,7 +92,7 @@ export default function Home() {
             <UploadModal open={open} toggleOpen={isOpen} />
             <CoverImage>
                 <SplashScreen>
-                    <h1>Clean Up Service</h1>
+                    <h1>CreekWatch</h1>
                     <p>Saving creeks one picture at a time</p>
                 </SplashScreen>
             </CoverImage>

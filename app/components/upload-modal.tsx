@@ -29,6 +29,7 @@ const LocationMarker = ({updatePosition}: LocationMarkerTypes) => {
         click(e: any) {
             setPosition(e.latlng);
             if (position !== null) {
+
                 updatePosition(position)
             }
         },

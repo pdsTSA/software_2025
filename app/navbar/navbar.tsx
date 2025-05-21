@@ -18,7 +18,7 @@ export const Navbar = () => {
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     <NavLink to={"/"}>
-                        Clean Up Service
+                        CreekWatch
                     </NavLink>
                 </Typography>
                 <NavLink to={"/map"}><Button color="inherit">Map</Button></NavLink>
